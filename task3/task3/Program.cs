@@ -21,7 +21,7 @@ BigInteger Gcd(BigInteger a, BigInteger b)
     return a;
 }
 
-app.MapGet("/app/angritsen_gmail_com", (string x, string y) =>
+app.MapGet("/app/vugorenko2000_gmail_com", (string x, string y) =>
 {
     if (!BigInteger.TryParse(x, out var xi) || !BigInteger.TryParse(y, out var yi))
         return Results.Text("NaN", "text/plain");
@@ -36,3 +36,4 @@ app.MapGet("/app/angritsen_gmail_com", (string x, string y) =>
 });
 
 app.Run();
+
