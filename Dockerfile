@@ -2,15 +2,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Копируем sln и csproj правильно
-COPY task3/task3.csproj ./task3/
-COPY task3.sln ./
+# Копируем файл решения и проекта из папки task3
+COPY task3/task3.sln .
+COPY task3/task3/task3.csproj ./task3/
 
 # Восстанавливаем зависимости
-RUN dotnet restore task3.sln
+RUN dotnet restore
 
-# Копируем весь код
-COPY . ./
+# Копируем остальные исходные файлы
+COPY task3/task3/ ./task3/
 
 # Собираем проект в Release
 RUN dotnet publish task3/task3.csproj -c Release -o /app
